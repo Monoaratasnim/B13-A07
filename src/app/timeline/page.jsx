@@ -5,8 +5,9 @@ import { Phone, MessageSquare, Video } from "lucide-react";
 
 export default function TimelinePage() {
   const [timeline, setTimeline] = useState([]);
+  const [filter, setFilter] = useState("all"); // ✅ filter state
 
-  // ✅ Load timeline safely
+  // ✅ Load timeline
   useEffect(() => {
     try {
       const data = JSON.parse(localStorage.getItem("timeline")) || [];
@@ -16,7 +17,15 @@ export default function TimelinePage() {
     }
   }, []);
 
-  // ✅ ICON + COLOR MAPPING (FIGMA STYLE)
+  // ✅ FILTER LOGIC
+  const filteredTimeline =
+    filter === "all"
+      ? timeline
+      : timeline.filter(
+          (item) => item.type?.toLowerCase() === filter
+        );
+
+  // ✅ ICON + COLOR
   const getIcon = (type) => {
     const t = type?.toLowerCase();
 
@@ -48,22 +57,38 @@ export default function TimelinePage() {
   };
 
   return (
-    <div className="min-h-screen pt-20 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto">
+    <div className="min-h-screen pt-20 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto ">
 
-      {/* HEADER */}
-      <h1 className="text-2xl font-bold mb-6 text-gray-950">
-        Timeline
-      </h1>
+     {/* HEADER */}
+<div className="sticky top-10 z-10 py-4 container " >
+
+  <h1 className="text-2xl font-bold text-gray-950 mb-3">
+    Timeline
+  </h1>
+
+  {/* FILTER BELOW HEADING */}
+  <select
+    value={filter}
+    onChange={(e) => setFilter(e.target.value)}
+    className="text-sm border border-gray-200 text-gray-900 rounded-lg px-3 py-2 bg-white shadow-sm focus:outline-none w-full sm:w-auto"
+  >
+    <option value="all">Filter Timeline</option>
+    <option value="call">Call</option>
+    <option value="text">Text</option>
+    <option value="video">Video</option>
+  </select>
+
+</div>
 
       {/* EMPTY STATE */}
-      {timeline.length === 0 ? (
-        <div className="text-center text-gray-950 text-sm mt-20">
-          No activity yet
+      {filteredTimeline.length === 0 ? (
+        <div className="text-center text-gray-500 text-sm mt-20">
+          No activity found
         </div>
       ) : (
         <div className="space-y-4">
 
-          {timeline.map((item) => (
+          {filteredTimeline.map((item) => (
             <div
               key={item.id}
               className="flex items-center gap-4 bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition"
