@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
       <body className="flex flex-col min-h-screen bg-[#f9fafb]">
         <Navbar />
          <Toaster position="top-right" />
-        <main className="flex-grow">
+        <main className="flex-grow pt-20">
           {children}
         </main>
         <Footer />
