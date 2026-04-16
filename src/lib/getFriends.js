@@ -1,14 +1,12 @@
+import fs from "fs/promises";
+import path from "path";
+
 export async function getFriends() {
-  const res = await fetch(
-    "http://localhost:3000/data/friends.json",
-    {
-      cache: "no-store",
-    }
+  const filePath = path.join(
+    process.cwd(),
+    "public/data/friends.json"
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to load friends.json");
-  }
-
-  return res.json();
+  const data = await fs.readFile(filePath, "utf-8");
+  return JSON.parse(data);
 }

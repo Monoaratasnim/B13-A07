@@ -3,25 +3,27 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const MyLink = ({ href, children }) => {
+export default function MyLink({ href, children, icon: Icon }) {
   const pathname = usePathname();
 
-  const isActive = pathname === href;
+  const active =
+    href === "/home"
+      ? pathname === "/home" || pathname === "/"
+      : pathname === href || pathname.startsWith(href + "/");
 
   return (
     <Link
       href={href}
-   className={`px-4 py-2 rounded-md ${
-  isActive
-    ? "bg-purple-500 text-white font-semibold"
-    : "text-gray-500 hover:bg-gray-100"
-}`}
+      className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
+        active
+          ? "bg-[#1a3c34] text-white shadow-md"
+          : "text-[#666] hover:text-black hover:bg-gray-100"
+      }`}
     >
-      {children}
+      {Icon && (
+        <Icon size={18} className={active ? "text-white" : "text-[#999]"} />
+      )}
+      <span>{children}</span>
     </Link>
   );
-};
-
-
-
-export default MyLink;
+}

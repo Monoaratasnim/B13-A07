@@ -1,50 +1,39 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function FriendCard({ friend }) {
-  const statusStyle =
-    friend.status === "overdue"
-      ? "bg-red-100 text-red-700"
-      : friend.status === "almost due"
-      ? "bg-yellow-100 text-yellow-700"
-      : "bg-green-100 text-green-700";
+  const statusStyles = {
+    "overdue": "bg-red-100 text-red-600 border-red-200",
+    "almost due": "bg-orange-100 text-orange-600 border-orange-200",
+    "on-track": "bg-green-100 text-green-600 border-green-200",
+  };
 
   return (
-    <Link href={`/friends/${friend.id}`}>
-      <div className="bg-white rounded-xl shadow p-4 hover:shadow-lg hover:scale-105 transition duration-300">
+    <Link href={`/friend/${friend.id}`} className="w-full">
+      <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all text-center group cursor-pointer">
 
         {/* IMAGE */}
-        <div className="flex justify-center">
-          <Image
-            src={friend.picture}
-            alt={friend.name}
-            width={80}
-            height={80}
-            className="rounded-full object-cover"
-          />
-        </div>
+        <img
+          src={friend.picture}
+          alt={friend.name}
+          className="w-20 h-20 rounded-full object-cover mx-auto mb-3 border-2 border-white ring-2 ring-gray-50"
+        />
 
         {/* NAME */}
-        <h2 className="text-center font-semibold mt-3">
+        <h3 className="font-bold text-gray-900 group-hover:text-black">
           {friend.name}
-        </h2>
+        </h3>
 
-        {/* EMAIL */}
-        <p className="text-center text-xs text-gray-500">
-          {friend.email}
-        </p>
-
-        {/* DAYS SINCE CONTACT */}
-        <p className="text-center text-sm mt-1">
-          {friend.days_since_contact} days since contact
+        {/* DAYS */}
+        <p className="text-xs text-gray-400 mt-1">
+          {friend.days_since_contact} days ago
         </p>
 
         {/* TAGS */}
-        <div className="flex justify-center flex-wrap gap-2 mt-3">
+        <div className="flex flex-wrap justify-center gap-1 mt-3">
           {friend.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs bg-gray-200 px-2 py-1 rounded"
+              className="px-2 py-0.5 bg-gray-50 text-[10px] uppercase font-bold text-gray-500 rounded-full border border-gray-100"
             >
               {tag}
             </span>
@@ -52,12 +41,13 @@ export default function FriendCard({ friend }) {
         </div>
 
         {/* STATUS */}
-        <div className="flex justify-center mt-3">
-          <span className={`text-xs px-3 py-1 rounded-full ${statusStyle}`}>
-            {friend.status}
-          </span>
+        <div
+          className={`mt-4 py-1 px-3 rounded-full text-[11px] font-bold uppercase inline-block border ${
+            statusStyles[friend.status] || "bg-gray-100"
+          }`}
+        >
+          {friend.status}
         </div>
-
       </div>
     </Link>
   );
