@@ -20,7 +20,7 @@ export default function Navbar() {
         </div>
 
         {/* DESKTOP NAV */}
-        <div className="hidden sm:flex items-center gap-1 bg-gray-100 p-1 rounded-2xl border">
+        <div className="hidden sm:flex items-center gap-1 bg-gray-100 p-1 rounded-2xl ">
           <MyLink href="/home" icon={Home}>Home</MyLink>
           <MyLink href="/timeline" icon={Clock}>Timeline</MyLink>
           <MyLink href="/stats" icon={BarChart3}>Stats</MyLink>

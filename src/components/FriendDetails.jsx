@@ -13,7 +13,6 @@ import {
 
 export default function FriendDetails({ friend }) {
 
- 
   const handleCheckIn = (type) => {
     const newEntry = {
       id: Date.now(),
@@ -30,29 +29,25 @@ export default function FriendDetails({ friend }) {
       JSON.stringify([newEntry, ...existing])
     );
 
-   toast.success(`${type} with ${friend.name} recorded!`);
+    toast.success(`${type} with ${friend.name} recorded!`);
   };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-6 grid grid-cols-1 md:grid-cols-12 gap-6">
 
-    
       <div className="md:col-span-4">
         <div className="bg-white border border-gray-100 rounded-2xl p-5 sm:p-6 text-center shadow-sm">
 
-        
           <img
             src={friend.picture}
             alt={friend.name}
             className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto object-cover border-4 border-gray-50 shadow-sm"
           />
 
-     
           <h1 className="text-lg sm:text-xl font-bold mt-4 text-gray-900">
             {friend.name}
           </h1>
 
-        
           <span
             className={`text-xs font-bold px-3 py-1 rounded-full inline-block mt-2 border ${
               friend.status === "overdue"
@@ -65,17 +60,14 @@ export default function FriendDetails({ friend }) {
             {friend.status}
           </span>
 
-      
           <p className="text-gray-400 text-xs sm:text-sm mt-2 break-all">
             {friend.email}
           </p>
 
-        
           <p className="text-gray-600 italic text-sm mt-4">
             "{friend.bio}"
           </p>
 
-       
           <div className="flex flex-wrap justify-center gap-2 mt-4">
             {friend.tags.map((tag) => (
               <span
@@ -87,35 +79,32 @@ export default function FriendDetails({ friend }) {
             ))}
           </div>
 
-    
-<div className="flex flex-col gap-2 mt-6">
+          <div className="flex flex-col gap-2 mt-6">
 
-  <button className="w-full py-2 bg-gray-50 hover:bg-gray-100 text-gray-950 rounded-lg text-sm font-medium flex items-center justify-center gap-2">
-    <Clock size={16} /> Snooze
-  </button>
+            <button className="w-full py-2 bg-gray-50 hover:bg-gray-100 text-gray-950 rounded-lg text-sm font-medium flex items-center justify-center gap-2">
+              <Clock size={16} /> Snooze
+            </button>
 
-  <button className="w-full py-2 bg-gray-50 hover:bg-gray-100 text-gray-950 rounded-lg text-sm font-medium flex items-center justify-center gap-2">
-    <Archive size={16} /> Archive
-  </button>
+            <button className="w-full py-2 bg-gray-50 hover:bg-gray-100 text-gray-950 rounded-lg text-sm font-medium flex items-center justify-center gap-2">
+              <Archive size={16} /> Archive
+            </button>
 
-  <button className="w-full py-2 bg-red-50 hover:bg-red-100 text-red-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2">
-    <Trash2 size={16} /> Delete
-  </button>
-</div>
+            <button className="w-full py-2 bg-red-50 hover:bg-red-100 text-red-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2">
+              <Trash2 size={16} /> Delete
+            </button>
+
+          </div>
         </div>
       </div>
 
-    
       <div className="md:col-span-8 space-y-6">
 
-      
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           <StatCard label="Days Since Contact" value={friend.days_since_contact} />
           <StatCard label="Goal (Days)" value={friend.goal} />
           <StatCard label="Next Due" value={friend.next_due_date} />
         </div>
 
-  
         <div className="bg-white border border-gray-100 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 shadow-sm">
           <div>
             <p className="text-sm text-gray-500 font-medium">
@@ -131,13 +120,13 @@ export default function FriendDetails({ friend }) {
           </button>
         </div>
 
-       
-        <div className="bg-white border border-gray-100 rounded-2xl p-5 sm:p-6 shadow-sm">
+        <div className="bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 shadow-sm">
           <p className="text-sm text-gray-500 font-medium mb-4">
             Quick Check-In
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+
             <CheckInBtn
               icon={<Phone size={20} />}
               label="Call"
@@ -155,14 +144,14 @@ export default function FriendDetails({ friend }) {
               label="Video"
               onClick={() => handleCheckIn("Video")}
             />
+
           </div>
         </div>
+
       </div>
     </div>
   );
 }
-
-
 
 function StatCard({ label, value }) {
   return (
@@ -181,7 +170,7 @@ function CheckInBtn({ icon, label, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="flex flex-col items-center gap-2 p-3 sm:p-4 border rounded-xl hover:bg-gray-50 transition-all group"
+      className="flex flex-col items-center gap-2 p-3 sm:p-4 border border-gray-300 rounded-xl hover:bg-gray-200 transition-all group"
     >
       <span className="text-gray-400 group-hover:text-black">
         {icon}
