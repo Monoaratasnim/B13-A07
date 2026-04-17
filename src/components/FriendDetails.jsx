@@ -30,7 +30,7 @@ export default function FriendDetails({ friend }) {
       JSON.stringify([newEntry, ...existing])
     );
 
-    toast.success(`${type} recorded!`);
+   toast.success(`${type} with ${friend.name} recorded!`);
   };
 
   return (

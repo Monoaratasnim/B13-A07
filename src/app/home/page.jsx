@@ -2,6 +2,11 @@ import Banner from "@/components/Banner";
 import FriendCard from "@/components/FriendCard";
 import { getFriends } from "@/lib/getFriends";
 
+export const metadata = {
+  title: "Home - Keen Keeper",
+  description: "Welcome to Keen Keeper -your ultimate friend management app.",
+};
+
 export default async function Home() {
   const friends = await getFriends();
 

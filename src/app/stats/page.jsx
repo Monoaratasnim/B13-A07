@@ -44,7 +44,7 @@ export default function StatsPage() {
   const COLORS = ["#22c55e", "#6b7280", "#3b82f6"];
 
   return (
-    <div className="min-h-screen pt-20 px-4 sm:px-6 md:px-8 max-w-5xl mx-auto">
+    <div className="min-h-screen pt-3 px-4 sm:px-6 md:px-8 max-w-5xl mx-auto">
 
       {/* HEADER */}
       <h1 className="text-2xl font-bold text-gray-900 mb-8">
@@ -54,12 +54,12 @@ export default function StatsPage() {
       {/* CHART CARD */}
       <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
 
-        <h2 className="text-sm font-semibold text-gray-500 mb-6">
+        <h2 className="text-sm font-semibold text-gray-500 mb-4">
           Interaction Breakdown
         </h2>
 
         {/* PIE CHART */}
-        <div className="w-full h-[300px] sm:h-[350px]">
+        <div className="w-full h-75 sm:h-87.5">
           <ResponsiveContainer>
             <PieChart>
               <Pie

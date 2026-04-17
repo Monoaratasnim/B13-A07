@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Phone, MessageSquare, Video } from "lucide-react";
 
+
 export default function TimelinePage() {
   const [timeline, setTimeline] = useState([]);
   const [filter, setFilter] = useState("all"); // ✅ filter state
@@ -57,12 +58,12 @@ export default function TimelinePage() {
   };
 
   return (
-    <div className="min-h-screen pt-20 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto ">
+    <div className="min-h-screen pt-2 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto ">
 
      {/* HEADER */}
 <div className="sticky top-10 z-10 py-4 container " >
 
-  <h1 className="text-2xl font-bold text-gray-950 mb-3">
+  <h1 className="text-2xl font-bold text-gray-950 mb-4">
     Timeline
   </h1>
 
