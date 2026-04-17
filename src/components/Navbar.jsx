@@ -12,7 +12,7 @@ export default function Navbar() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-3 flex items-center justify-between">
 
-        {/* LOGO */}
+    
         <div className="flex items-center gap-2">
           <span className="text-lg sm:text-xl font-bold tracking-tight">
            <span className="text-[#1F2937]"> Keen</span><span className="text-[#244D3F]">Keeper</span>
@@ -26,7 +26,7 @@ export default function Navbar() {
           <MyLink href="/stats" icon={BarChart3}>Stats</MyLink>
         </div>
 
-        {/* MOBILE BUTTON */}
+      
         <button
           onClick={() => setOpen(!open)}
           className="sm:hidden p-2 rounded-lg border border-gray-200 text-[#244D3F]"

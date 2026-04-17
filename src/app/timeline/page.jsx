@@ -6,9 +6,9 @@ import { Phone, MessageSquare, Video } from "lucide-react";
 
 export default function TimelinePage() {
   const [timeline, setTimeline] = useState([]);
-  const [filter, setFilter] = useState("all"); // ✅ filter state
+  const [filter, setFilter] = useState("all"); 
 
-  // ✅ Load timeline
+
   useEffect(() => {
     try {
       const data = JSON.parse(localStorage.getItem("timeline")) || [];
@@ -18,7 +18,7 @@ export default function TimelinePage() {
     }
   }, []);
 
-  // ✅ FILTER LOGIC
+
   const filteredTimeline =
     filter === "all"
       ? timeline
@@ -26,7 +26,7 @@ export default function TimelinePage() {
           (item) => item.type?.toLowerCase() === filter
         );
 
-  // ✅ ICON + COLOR
+
   const getIcon = (type) => {
     const t = type?.toLowerCase();
 
@@ -67,7 +67,7 @@ export default function TimelinePage() {
     Timeline
   </h1>
 
-  {/* FILTER BELOW HEADING */}
+
   <select
     value={filter}
     onChange={(e) => setFilter(e.target.value)}
@@ -95,10 +95,9 @@ export default function TimelinePage() {
               className="flex items-center gap-4 bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition"
             >
               
-              {/* ICON */}
               {getIcon(item.type)}
 
-              {/* CONTENT */}
+           
               <div className="flex-1">
                 <p className="text-sm font-semibold text-gray-900">
                   {item.title}

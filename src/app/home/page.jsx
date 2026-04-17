@@ -12,7 +12,6 @@ export default async function Home() {
 
   return (
     <div>
-      {/* IMPORTANT: pass friends */}
       <Banner friends={friends} />
 
       <div className="px-4 md:px-8 py-10">

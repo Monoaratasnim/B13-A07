@@ -16,7 +16,7 @@ export default function StatsPage() {
     const timeline =
       JSON.parse(localStorage.getItem("timeline")) || [];
 
-    // ✅ COUNT TYPES
+  
     const counts = {
       call: 0,
       text: 0,
@@ -30,7 +30,7 @@ export default function StatsPage() {
       }
     });
 
-    // ✅ FORMAT FOR CHART
+
     const chartData = [
       { name: "Call", value: counts.call },
       { name: "Text", value: counts.text },
@@ -40,18 +40,18 @@ export default function StatsPage() {
     setData(chartData);
   }, []);
 
-  // ✅ COLORS (FIGMA STYLE)
+
   const COLORS = ["#22c55e", "#6b7280", "#3b82f6"];
 
   return (
     <div className="min-h-screen pt-3 px-4 sm:px-6 md:px-8 max-w-5xl mx-auto">
 
-      {/* HEADER */}
+   
       <h1 className="text-2xl font-bold text-gray-900 mb-8">
         Friendship Analytics
       </h1>
 
-      {/* CHART CARD */}
+     
       <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
 
         <h2 className="text-sm font-semibold text-gray-500 mb-4">
@@ -87,30 +87,10 @@ export default function StatsPage() {
 
       </div>
 
-      {/* SUMMARY CARDS */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-
-        {data.map((item) => (
-          <div
-            key={item.name}
-            className="bg-white border border-gray-100 rounded-xl p-5 text-center shadow-sm"
-          >
-            <p className="text-sm text-gray-500 font-medium">
-              {item.name}
-            </p>
-            <p className="text-2xl font-bold text-gray-900 mt-2">
-              {item.value}
-            </p>
-          </div>
-        ))}
-
-      </div>
-
     </div>
   );
 }
 
-/* ===== LEGEND COMPONENT ===== */
 function LegendItem({ color, label }) {
   return (
     <div className="flex items-center gap-2">
