@@ -22,7 +22,7 @@ export default function Banner({ friends = [] }) {
   ];
 
   return (
-    <div className="text-center pt-20 pb-12 bg-[#f9fafb] px-4 border-b border-gray-100">
+    <div className="text-center pt-6 pb-12 bg-[#f9fafb] px-4 border-b border-gray-100">
  
       <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-gray-900">
         Friends to keep close in your life
