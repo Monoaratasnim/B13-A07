@@ -15,7 +15,7 @@ export default async function Home() {
       <Banner friends={friends} />
 
       <div className="px-4 md:px-8 py-10">
-        <h2 className="font-semibold mb-6 text-lg">
+        <h2 className="font-bold mb-6 text-lg text-[#01120c]">
           Your Friends
         </h2>
 
