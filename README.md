@@ -12,6 +12,7 @@ KeenKeeper is a modern relationship management web app that helps you stay conne
 - *JavaScript (ES6+)*
 - *LocalStorage (for data persistence)*
 - *Lucide React Icons*
+- *Recharts*
 
 ---
 
