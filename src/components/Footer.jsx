@@ -1,28 +1,60 @@
+"use client";
+
+import { FaYoutube, FaFacebook, FaTwitter } from "react-icons/fa";
+
 export default function Footer() {
   return (
-    <footer className="bg-[#132c26] text-white py-16 px-6 mt-20">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold tracking-tighter mb-4">KeenKeeper</h2>
-        <p className="text-gray-400 text-sm mb-8 max-w-sm mx-auto">
-          Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.
-        </p>
-        
-        <div className="flex justify-center gap-4 mb-12">
-          {/* Social Icons (using placeholders) */}
-          {['Youtube', 'Facebook', 'Twitter'].map(social => (
-            <div key={social} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 cursor-pointer">
-              <span className="text-[10px]">{social[0]}</span>
-            </div>
-          ))}
-        </div>
+  <footer className="bg-gradient-to-b from-[#132c26] to-[#0f1f1b] text-white mt-20 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
 
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between text-[11px] text-gray-500">
-          <p>© 2026 KeenKeeper. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <span className="hover:underline cursor-pointer">Privacy Policy</span>
-            <span className="hover:underline cursor-pointer">Terms of Service</span>
-            <span className="hover:underline cursor-pointer">Cookies</span>
+      {/* FULL WIDTH CONTAINER */}
+     <div className="w-full px-4 sm:px-6 md:px-8 py-14">
+
+        {/* CENTER ONLY ON LARGE SCREENS */}
+          <div className="max-w-6xl mx-auto">
+
+          {/* TOP */}
+          <div className="text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+              KeenKeeper
+            </h2>
+
+            <p className="text-gray-400 text-sm mt-3 max-w-md mx-auto">
+              Your personal shelf of meaningful connections. Keep your relationships alive and strong.
+            </p>
+
+            <p className="mt-6 text-sm font-semibold text-gray-300">
+              Social Links
+            </p>
           </div>
+
+          {/* SOCIAL ICONS */}
+          <div className="flex justify-center gap-4 mt-4 flex-wrap">
+            <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition cursor-pointer">
+              <FaYoutube size={18} />
+            </div>
+
+            <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition cursor-pointer">
+              <FaFacebook size={18} />
+            </div>
+
+            <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition cursor-pointer">
+              <FaTwitter size={18} />
+            </div>
+          </div>
+
+          {/* BOTTOM */}
+          <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4 text-center md:text-left">
+
+            <p>© 2026 KeenKeeper. All rights reserved.</p>
+
+            <div className="flex flex-wrap justify-center md:justify-end gap-4">
+              <span className="hover:underline cursor-pointer">Privacy Policy</span>
+              <span className="hover:underline cursor-pointer">Terms of Service</span>
+              <span className="hover:underline cursor-pointer">Cookies</span>
+            </div>
+
+          </div>
+
         </div>
       </div>
     </footer>
